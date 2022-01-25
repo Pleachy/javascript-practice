@@ -1,5 +1,6 @@
 //grab the canvas element from our html file
 const canvas = document.querySelector('canvas');
+console.log(canvas);
 
 //getting player context, specifically for a 2d environment
 const context = canvas.getContext('2d');
@@ -16,7 +17,18 @@ class Player {
         this.radius = radius;
         this.color = color;
     }
+
+    //helper function for drawing the player
+    draw() {
+        context.beginPath();
+        // arguments required for arc: arc(x: Int, y: Int, r: Int, starAngle: float, endAngle: float, drawCounterClockwise: Bool (false));
+        context.arc(this.x, this.y, this.radius, 0, 360, false);
+        context.fillStyle = this.color;
+        context.fill();
+    }
 }
 
-console.log(context);
-
+//canvas coordinates start at 0,0 from the top left of the canvas box
+const player = new Player(100, 100, 30, 'blue');
+console.log(player);
+player.draw();
