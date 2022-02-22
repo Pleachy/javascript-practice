@@ -1,5 +1,5 @@
 //need to import context from index.js so that draw() works
-import {context} from "./index.js";
+import {context} from "../index.js";
 
 class Player {
     constructor(x, y, radius, color) {
